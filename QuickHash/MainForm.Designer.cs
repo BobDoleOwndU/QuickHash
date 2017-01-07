@@ -31,8 +31,9 @@
             this.textLabel = new System.Windows.Forms.Label();
             this.textTextBox = new System.Windows.Forms.TextBox();
             this.hashLabel = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.hashTextBox = new System.Windows.Forms.TextBox();
+            this.processButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textLabel
@@ -60,34 +61,45 @@
             this.hashLabel.TabIndex = 2;
             this.hashLabel.Text = "Hash:";
             // 
-            // textBox1
+            // hashTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 74);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(259, 20);
-            this.textBox1.TabIndex = 3;
+            this.hashTextBox.Location = new System.Drawing.Point(13, 74);
+            this.hashTextBox.Name = "hashTextBox";
+            this.hashTextBox.ReadOnly = true;
+            this.hashTextBox.Size = new System.Drawing.Size(259, 20);
+            this.hashTextBox.TabIndex = 3;
             // 
-            // button1
+            // processButton
             // 
-            this.button1.Location = new System.Drawing.Point(13, 101);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Process";
-            this.button1.UseVisualStyleBackColor = true;
+            this.processButton.Location = new System.Drawing.Point(13, 101);
+            this.processButton.Name = "processButton";
+            this.processButton.Size = new System.Drawing.Size(75, 23);
+            this.processButton.TabIndex = 4;
+            this.processButton.Text = "Process";
+            this.processButton.UseVisualStyleBackColor = true;
+            this.processButton.Click += new System.EventHandler(this.processButton_Click);
             // 
-            // Form1
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(134, 121);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(138, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Created by BobDoleOwndU";
+            // 
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 143);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.processButton);
+            this.Controls.Add(this.hashTextBox);
             this.Controls.Add(this.hashLabel);
             this.Controls.Add(this.textTextBox);
             this.Controls.Add(this.textLabel);
-            this.Name = "Form1";
+            this.Name = "MainForm";
             this.Text = "QuickHash";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -99,8 +111,9 @@
         private System.Windows.Forms.Label textLabel;
         private System.Windows.Forms.TextBox textTextBox;
         private System.Windows.Forms.Label hashLabel;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox hashTextBox;
+        private System.Windows.Forms.Button processButton;
+        private System.Windows.Forms.Label label1;
     }
 }
 

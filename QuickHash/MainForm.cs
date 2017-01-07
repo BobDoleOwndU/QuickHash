@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuickHash
@@ -15,6 +8,18 @@ namespace QuickHash
         public MainForm()
         {
             InitializeComponent();
-        }
-    }
-}
+        } //constructor ends
+
+        private void processButton_Click(object sender, EventArgs e)
+        {
+            if(!string.IsNullOrWhiteSpace(textTextBox.Text))
+            {
+                hashTextBox.Text = Hashing.Hashing.GetHashFromString(textTextBox.Text);
+            } //if ends
+            else
+            {
+                hashTextBox.Text = "Text can't be whitespace or empty!";
+            } //else ends
+        } //method proccessButton_click ends
+    } //partial class MainForm ends
+} //namespace QuickHash ends
