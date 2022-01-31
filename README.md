@@ -38,7 +38,7 @@ The second argument should be the hash type.
 
 >**-p64e**: PathCode64 with Extension
 
->**-s64**: StrCode64 with Extension
+>**-s64**: StrCode64
 
 >**-p32**: PathCode32
 
