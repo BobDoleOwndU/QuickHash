@@ -24,13 +24,10 @@ namespace QuickHash
         {
             string text = textTextBox.Text;
 
-            if (!string.IsNullOrWhiteSpace(text))
-                if(hashTypeComboBox.SelectedIndex != -1)
-                    hashTextBox.Text = Hashing.Converter.Convert(text, hashTypeComboBox.SelectedIndex, littleEndianCheckBox.Checked);
-                else
-                 hashTextBox.Text = "Hash type not selected!";
+            if (hashTypeComboBox.SelectedIndex != -1)
+                hashTextBox.Text = Hashing.Converter.Convert(text, hashTypeComboBox.SelectedIndex, littleEndianCheckBox.Checked);
             else
-                hashTextBox.Text = "Text can't be whitespace or empty!";
+                hashTextBox.Text = "Hash type not selected!";
         } //method proccessButton_click ends
 
         private string ToLittleEndian(string bigEndian)

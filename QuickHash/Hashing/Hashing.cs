@@ -148,6 +148,7 @@ namespace QuickHash.Hashing
         "vo.evf",
         "vpc",
         "wem",
+        "wmv",
         "xml"
         };
 
