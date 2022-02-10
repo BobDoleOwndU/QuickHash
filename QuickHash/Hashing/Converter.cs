@@ -15,39 +15,53 @@ namespace QuickHash.Hashing
             String64 = 2,
             Path32 = 3,
             String32 = 4,
-            ExtensionBytes = 5
+            ExtensionBytes = 5,
+            Fnv132 = 6,
         } //HashType
 
-        public static string Convert(string text, int hashType, bool littleEndian)
+        public static string Convert(string text, int hashType, bool littleEndian, bool isDecimal)
         {
-            string result = "";
+            ulong result = 0;
 
             switch (hashType)
             {
                 case (int)HashType.Path64:
-                    result = Hashing.HashFileName(text).ToString("x");
+                    result = Hashing.HashFileName(text);
                     break;
                 case (int)HashType.Path64WithExtension:
-                    result = Hashing.HashFileNameWithExtension(text).ToString("x");
+                    result = Hashing.HashFileNameWithExtension(text);
                     break;
                 case (int)HashType.String64:
-                    result = Hashing.HashFileNameLegacy(text).ToString("x");
+                    result = Hashing.HashFileNameLegacy(text);
                     break;
                 case (int)HashType.Path32:
-                    result = ToThirtyTwoBit(Hashing.HashFileName(text).ToString("x"));
+                    result = Hashing.HashFileName(text) & uint.MaxValue;
                     break;
                 case (int)HashType.String32:
-                    result = ToThirtyTwoBit(Hashing.HashFileNameLegacy(text).ToString("x"));
+                    result = Hashing.HashFileNameLegacy(text) & uint.MaxValue;
                     break;
                 case (int)HashType.ExtensionBytes:
-                    result = (Hashing.HashFileExtension(text) << 3).ToString("x");
+                    result = (Hashing.HashFileExtension(text) << 3);
+                    break;
+                case (int)HashType.Fnv132:
+                    result = FnvHashManager.FNV1HashConvert(text.ToLower());
                     break;
             } //switch
 
-            if (littleEndian)
-                result = ToLittleEndian(result);
+            string resultString = "";
 
-            return result;
+            if (!isDecimal)
+            {
+                resultString = result.ToString("x");
+                if (littleEndian)
+                    resultString = ToLittleEndian(resultString);
+            }
+            else
+            {
+                resultString = result.ToString("d");
+            }
+
+            return resultString;
         } //Convert
 
         private static string ToLittleEndian(string bigEndian)
@@ -63,10 +77,5 @@ namespace QuickHash.Hashing
 
             return littleEndian;
         } //ToLittleEndian
-
-        private static string ToThirtyTwoBit(string sixtyFourBit)
-        {
-            return sixtyFourBit.Substring(sixtyFourBit.Length - 8, 8);
-        } //To32Bit
     } //class
 } //namespace

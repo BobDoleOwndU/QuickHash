@@ -37,6 +37,7 @@
             this.hashTypeComboBox = new System.Windows.Forms.ComboBox();
             this.hashTypeLabel = new System.Windows.Forms.Label();
             this.littleEndianCheckBox = new System.Windows.Forms.CheckBox();
+            this.decimalCheckBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // textLabel
@@ -101,7 +102,8 @@
             "StrCode64",
             "PathCode32",
             "StrCode32",
-            "Extension Bytes"});
+            "Extension Bytes",
+            "FNV132 (Wwise)"});
             this.hashTypeComboBox.Location = new System.Drawing.Point(13, 73);
             this.hashTypeComboBox.Name = "hashTypeComboBox";
             this.hashTypeComboBox.Size = new System.Drawing.Size(121, 21);
@@ -119,12 +121,23 @@
             // littleEndianCheckBox
             // 
             this.littleEndianCheckBox.AutoSize = true;
-            this.littleEndianCheckBox.Location = new System.Drawing.Point(141, 76);
+            this.littleEndianCheckBox.Location = new System.Drawing.Point(141, 66);
             this.littleEndianCheckBox.Name = "littleEndianCheckBox";
             this.littleEndianCheckBox.Size = new System.Drawing.Size(84, 17);
             this.littleEndianCheckBox.TabIndex = 8;
             this.littleEndianCheckBox.Text = "Little-Endian";
             this.littleEndianCheckBox.UseVisualStyleBackColor = true;
+            // 
+            // decimalCheckBox
+            // 
+            this.decimalCheckBox.AutoSize = true;
+            this.decimalCheckBox.Location = new System.Drawing.Point(141, 86);
+            this.decimalCheckBox.Name = "decimalCheckBox";
+            this.decimalCheckBox.Size = new System.Drawing.Size(84, 17);
+            this.decimalCheckBox.TabIndex = 9;
+            this.decimalCheckBox.Text = "Decimal";
+            this.decimalCheckBox.UseVisualStyleBackColor = true;
+            this.decimalCheckBox.Click += new System.EventHandler(this.decimalCheckBox_Click);
             // 
             // MainForm
             // 
@@ -132,6 +145,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 183);
             this.Controls.Add(this.littleEndianCheckBox);
+            this.Controls.Add(this.decimalCheckBox);
             this.Controls.Add(this.hashTypeLabel);
             this.Controls.Add(this.hashTypeComboBox);
             this.Controls.Add(this.label1);
@@ -161,6 +175,7 @@
         private System.Windows.Forms.ComboBox hashTypeComboBox;
         private System.Windows.Forms.Label hashTypeLabel;
         private System.Windows.Forms.CheckBox littleEndianCheckBox;
+        private System.Windows.Forms.CheckBox decimalCheckBox;
     }
 }
 
