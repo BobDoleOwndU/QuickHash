@@ -5,16 +5,6 @@ namespace QuickHash
 {
     public partial class MainForm : Form
     {
-        enum HashType
-        {
-            Path64 = 0,
-            Path64WithExtension = 1,
-            String64 = 2,
-            Path32 = 3,
-            String32 = 4,
-            ExtensionBytes = 5
-        } //HashType
-
         public MainForm()
         {
             InitializeComponent();

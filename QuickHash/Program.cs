@@ -47,15 +47,12 @@ namespace QuickHash
                     } //switch
 
                 if (args.Length > 2)
-                    if (args[2] == "-l")
-                        littleEndian = true;
-                    else if (args[2] == "-d")
+                {
+                    if (Array.Exists(args, x => x == "-d"))
                         isDecimal = true;
-                else if (args.Length > 3)
-                        if (args[3] == "-l")
-                            littleEndian = true;
-                        else if (args[3] == "-d")
-                            isDecimal = true;
+                    else if (Array.Exists(args, x => x == "-l"))
+                        littleEndian = true;
+                } //if
 
                 Console.WriteLine(Hashing.Converter.Convert(text, hashType, littleEndian, isDecimal));
 

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace QuickHash.Hashing
+﻿namespace QuickHash.Hashing
 {
     public static class Converter
     {
@@ -35,10 +29,10 @@ namespace QuickHash.Hashing
                     result = Hashing.HashFileNameLegacy(text);
                     break;
                 case (int)HashType.Path32:
-                    result = Hashing.HashFileName(text) & uint.MaxValue;
+                    result = (uint)Hashing.HashFileName(text);
                     break;
                 case (int)HashType.String32:
-                    result = Hashing.HashFileNameLegacy(text) & uint.MaxValue;
+                    result = (uint)Hashing.HashFileNameLegacy(text);
                     break;
                 case (int)HashType.ExtensionBytes:
                     result = (Hashing.HashFileExtension(text) << 3);
@@ -53,13 +47,14 @@ namespace QuickHash.Hashing
             if (!isDecimal)
             {
                 resultString = result.ToString("x");
+
                 if (littleEndian)
                     resultString = ToLittleEndian(resultString);
-            }
+            } //if
             else
             {
                 resultString = result.ToString("d");
-            }
+            } //else
 
             return resultString;
         } //Convert
@@ -73,7 +68,6 @@ namespace QuickHash.Hashing
 
             for (int i = 0; i < bigEndian.Length; i += 2)
                 littleEndian = bigEndian.Substring(i, 2) + littleEndian;
-
 
             return littleEndian;
         } //ToLittleEndian
