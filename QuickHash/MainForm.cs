@@ -25,28 +25,20 @@ namespace QuickHash
             string text = textTextBox.Text;
 
             if (hashTypeComboBox.SelectedIndex != -1)
-                hashTextBox.Text = Hashing.Converter.Convert(text, hashTypeComboBox.SelectedIndex, littleEndianCheckBox.Checked);
+                hashTextBox.Text = Hashing.Converter.Convert(text, hashTypeComboBox.SelectedIndex, littleEndianCheckBox.Checked, decimalCheckBox.Checked);
             else
                 hashTextBox.Text = "Hash type not selected!";
         } //method proccessButton_click ends
 
-        private string ToLittleEndian(string bigEndian)
+        private void decimalCheckBox_Click(object sender, EventArgs e)
         {
-            string littleEndian = "";
-
-            if (bigEndian.Length % 2 != 0)
-                bigEndian = "0" + bigEndian;
-
-            for (int i = 0; i < bigEndian.Length; i += 2)
-                littleEndian = bigEndian.Substring(i, 2) + littleEndian;
-
-
-            return littleEndian;
-        } //ToLittleEndian
-
-        private string ToThirtyTwoBit(string sixtyFourBit)
-        {
-            return sixtyFourBit.Substring(sixtyFourBit.Length - 8, 8);
-        } //To32Bit
+            if (decimalCheckBox.Checked)
+            {
+                littleEndianCheckBox.Checked = false;
+                littleEndianCheckBox.Enabled = false;
+            }
+            else
+                littleEndianCheckBox.Enabled = true;
+        }
     } //partial class MainForm ends
 } //namespace QuickHash ends

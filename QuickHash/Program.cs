@@ -16,7 +16,8 @@ namespace QuickHash
                 string text = "";
                 int hashType = 0;
                 bool littleEndian = false;
-                
+                bool isDecimal = false;
+
                 text = args[0];
 
                 if (args.Length > 1)
@@ -40,13 +41,23 @@ namespace QuickHash
                     case "-e":
                         hashType = 5;
                         break;
-                } //switch
+                    case "-fnv32":
+                        hashType = 6;
+                        break;
+                    } //switch
 
                 if (args.Length > 2)
                     if (args[2] == "-l")
                         littleEndian = true;
+                    else if (args[2] == "-d")
+                        isDecimal = true;
+                else if (args.Length > 3)
+                        if (args[3] == "-l")
+                            littleEndian = true;
+                        else if (args[3] == "-d")
+                            isDecimal = true;
 
-                Console.WriteLine(Hashing.Converter.Convert(text, hashType, littleEndian));
+                Console.WriteLine(Hashing.Converter.Convert(text, hashType, littleEndian, isDecimal));
 
                 return;
             } //if
