@@ -17,6 +17,7 @@ namespace QuickHash.Hashing
             String32 = 4,
             ExtensionBytes = 5,
             Fnv132 = 6,
+            GeoNameHash = 7,
         } //HashType
 
         public static string Convert(string text, int hashType, bool littleEndian, bool isDecimal)
@@ -44,7 +45,10 @@ namespace QuickHash.Hashing
                     result = (Hashing.HashFileExtension(text) << 3);
                     break;
                 case (int)HashType.Fnv132:
-                    result = FnvHashManager.FNV1HashConvert(text.ToLower());
+                    result = FnvHashManager.FNV1HashConvert(text);
+                    break;
+                case (int)HashType.GeoNameHash:
+                    result = GeoNameHash.GeoNameHashConvert(text);
                     break;
             } //switch
 
