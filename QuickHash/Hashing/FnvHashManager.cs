@@ -49,7 +49,7 @@ namespace QuickHash.Hashing
         public static uint FNV1HashConvert(string text)
         {
             var fnvHash = new FNV1Hash32();
-            var value = fnvHash.ComputeHash(Encoding.UTF8.GetBytes(text));//DEBUGNOW encoding? -v-
+            var value = fnvHash.ComputeHash(Encoding.UTF8.GetBytes(text.ToLower()));//DEBUGNOW encoding? -v-
             var hash = BitConverter.ToUInt32(value, 0);
             return hash;
         }//FNV1Hash32Str

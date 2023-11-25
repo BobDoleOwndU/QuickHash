@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="Hashing\FnvHashManager.cs" />
     <Compile Include="Hashing\Converter.cs" />
+    <Compile Include="Hashing\GeoNameHash.cs" />
     <Compile Include="Hashing\Hashing.cs" />
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>

@@ -21,29 +21,32 @@ namespace QuickHash
                 text = args[0];
 
                 if (args.Length > 1)
-                    switch (args[1])
-                {
-                    case "-p64":
-                        hashType = 0;
-                        break;
-                    case "-p64e":
-                        hashType = 1;
-                        break;
-                    case "-s64":
-                        hashType = 2;
-                        break;
-                    case "-p32":
-                        hashType = 3;
-                        break;
-                    case "-s32":
-                        hashType = 4;
-                        break;
-                    case "-e":
-                        hashType = 5;
-                        break;
-                    case "-fnv32":
-                        hashType = 6;
-                        break;
+                    switch (args[1].ToLower())
+                    {
+                        case "-p64":
+                            hashType = 0;
+                            break;
+                        case "-p64e":
+                            hashType = 1;
+                            break;
+                        case "-s64":
+                            hashType = 2;
+                            break;
+                        case "-p32":
+                            hashType = 3;
+                            break;
+                        case "-s32":
+                            hashType = 4;
+                            break;
+                        case "-e":
+                            hashType = 5;
+                            break;
+                        case "-fnv32":
+                            hashType = 6;
+                            break;
+                        case "-geonamehash":
+                            hashType = 7;
+                            break;
                     } //switch
 
                 if (args.Length > 2)

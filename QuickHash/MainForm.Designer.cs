@@ -103,7 +103,8 @@
             "PathCode32",
             "StrCode32",
             "Extension Bytes",
-            "FNV132 (Wwise)"});
+            "FNV132 (Wwise)",
+            "GeoNameHash",});
             this.hashTypeComboBox.Location = new System.Drawing.Point(13, 73);
             this.hashTypeComboBox.Name = "hashTypeComboBox";
             this.hashTypeComboBox.Size = new System.Drawing.Size(121, 21);
